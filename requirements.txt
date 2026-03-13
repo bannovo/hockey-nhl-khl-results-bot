@@ -1,6 +1,0 @@
-pyTelegramBotAPI
-nhl-api-py
-apscheduler
-pytz
-requests
-pandas
