@@ -15,7 +15,11 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 
 # --- НАСТРОЙКИ ---
-BOT_TOKEN = "8750772717:AAHvp0t1UdV9udPpkTkB-FtwVUphp3JrqKk"
+import os
+import telebot
+
+BOT_TOKEN = os.environ['BOT_TOKEN']  # читаем токен из переменной окружения
+bot = telebot.TeleBot(BOT_TOKEN)
 MOSCOW_TZ = pytz.timezone('Europe/Moscow')
 
 # Включаем логирование, чтобы видеть в консоли, что происходит
@@ -276,4 +280,5 @@ if __name__ == '__main__':
     logger.info("Планировщик запущен.")
 
     logger.info("Бот начал опрос Telegram...")
+
     bot.infinity_polling()
